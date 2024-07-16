@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,7 +122,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-
 # Media fayl sozlamalari
 MEDIA_URL='/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -141,14 +141,12 @@ REST_FRAMEWORK = {
     ]
 }
 
-
 # Rest Registration sozlamalari
 REST_REGISTRATION = {
     'REGISTER_VERIFICATION_ENABLED': False,
     'RESET_PASSWORD_VERIFICATION_ENABLED': False,
     'REGISTER_EMAIL_VERIFICATION_ENABLED': False,
 }
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'

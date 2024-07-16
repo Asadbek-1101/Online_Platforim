@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from app.views import (CourseListCreateAPIView, CourseListUpdateDestroyAPIView,
-                    LessonCreateAPIView, LessonDestroyAPIView, CommentCreateAPIView,
+                       LessonCreateAPIView, LessonDestroyAPIView, CommentCreateAPIView,
                        LikeAPIView, SendEmailToUserView, LikeCreateView)
 
 

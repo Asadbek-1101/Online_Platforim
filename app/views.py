@@ -72,7 +72,6 @@ class LikeCreateView(APIView):
         like_dislike = serializer.save()
         return Response(LikeSerializer(like_dislike).data)
 
-
 class SendEmailToUserView(APIView):
     def post(self, request: Request):
         serializer = EmailSerializer(data=request.data)

@@ -2,24 +2,23 @@ from django.contrib import admin
 
 from .models import User, Course, Lesson, Comment, Like
 
-admin.site.register([User, Course, Lesson, Comment, Like])
+admin.site.register([User, Course])
 
-class Comment(admin.TabularInline):
+class CommentInline(admin.StackedInline):
     model = Comment
     extra = 0
 
-class Like(admin.TabularInline):
+class LikeInline(admin.StackedInline):
     model = Like
     extra = 0
 
-class Lesson(admin.ModelAdmin):
-    list_display = ('name', 'video', 'created')
-    list_editable = ('name',)
+@admin.register(Lesson)
+class LessonAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'name', 'video', 'created')
+    list_display_links = ('name',)
+    list_filter = ('created',)
+    search_fields = ('name', 'created')
     inlines = [
-        Comment,
-        Like
+        CommentInline,
+        LikeInline
     ]
-
-
-
-

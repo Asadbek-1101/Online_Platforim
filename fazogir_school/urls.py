@@ -19,6 +19,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+
 from app.views import (CourseListCreateAPIView, CourseListUpdateDestroyAPIView,
                        LessonCreateAPIView, LessonDestroyAPIView, CommentCreateAPIView,
                        LikeAPIView, SendEmailToUserView, LikeCreateView)
@@ -50,6 +52,10 @@ urlpatterns = [
     # Darslarga reaksiya bildirish uchun url
     path('lesson/<int:pk>/like/', LikeAPIView.as_view()),
     path('lesson/like/created/', LikeCreateView.as_view()),
+
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

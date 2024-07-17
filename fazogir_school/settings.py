@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'app',
     'rest_framework',
     'rest_registration',
+    'drf_spectacular',
 
 ]
 
@@ -138,7 +139,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny'
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 # Rest Registration sozlamalari
@@ -154,3 +156,11 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'madrahimovq@gmail.com'
 EMAIL_HOST_PASSWORD = 'sqlfjwxtdzgmsxjl'
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Your Project API',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
